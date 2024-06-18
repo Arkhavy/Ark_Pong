@@ -1,0 +1,16 @@
+body
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#divEl
+{
+	position: relative;
+	width: 1600px; /* Value subject to change */
+	height: 900px; /* Value subject to change */
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
+}

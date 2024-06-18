@@ -1,0 +1,296 @@
+{
+	"extends":
+	[
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"env":
+	{
+		"node": true,
+		"es7": true
+	},
+	"parser": "@typescript-eslint/parser",
+	"parserOptions":
+	{
+		"project": ["./tsconfig.json"],
+		"ecmaVersion": 2023
+	},
+	"plugins":
+	[
+		"@typescript-eslint"
+	],
+	"rules":
+	{
+		"@typescript-eslint/strict-boolean-expressions":
+		[
+			2,
+			{
+				"allowString": false,
+				"allowNumber": false
+			}
+		],
+		// For any documentation about the following rules, refer to this -> https://eslint.org/docs/latest/rules/
+		"no-duplicate-imports": "error",
+		"no-constant-binary-expression": "error",
+		"no-new-native-nonconstructor": "error",
+		"no-promise-executor-return": "error",
+		"no-self-compare": "error",
+		"no-template-curly-in-string": "warn",
+		"no-unmodified-loop-condition": "error",
+		"no-unreachable-loop": "warn",
+		"no-unused-private-class-members": "error",
+		"no-use-before-define": "error",
+		"require-atomic-updates": "warn",
+		"accessor-pairs": "error",
+		"arrow-body-style": ["error", "always"],
+		"block-scoped-var": "error",
+		"camelcase": ["error",
+		{
+			"properties": "always",
+			"ignoreDestructuring": false,
+			"ignoreImports": false,
+			"ignoreGlobals": false
+		}],
+		"capitalized-comments": ["error", "always",
+		{
+			"ignoreInlineComments": false,
+			"ignoreConsecutiveComments": false
+		}],
+		"class-methods-use-this": "warn",
+		"consistent-return": ["warn",
+		{
+			"treatUndefinedAsUnspecified": false
+		}],
+		"consistent-this": ["error", "that"],
+		"curly": ["error", "multi-or-nest"],
+		"default-case": "error",
+		"default-case-last": "error",
+		"default-param-last": "error",
+		"dot-notation": "error",
+		"eqeqeq": ["error", "always"],
+		"func-name-matching": ["error", "always",
+		{
+			"considerPropertyDescriptor": true,
+			"includeCommonJSModuleExports": true
+		}],
+		"func-names": ["error", "always"],
+		"func-style": ["error", "declaration",
+		{
+			"allowArrowFunctions": false
+		}],
+		"grouped-accessor-pairs": ["error", "setBeforeGet"],
+		"guard-for-in": "error",
+		"id-denylist": ["error", "callback", "data", "error", "err"], // https://eslint.org/docs/latest/rules/id-denylist
+		"id-match": ["error", "^[a-z]+([A-Z][a-z]+)*$",
+		{
+			"properties": true,
+			"classFields": true,
+			"onlyDeclarations": false,
+			"ignoreDestructuring": false
+		}],
+		"init-declarations": ["error", "always"],
+		"logical-assignment-operators": ["warn", "always",
+		{
+			"enforceForIfStatements": true
+		}],
+		"max-classes-per-file": ["error",
+		{
+			"ignoreExpressions": true,
+			"max": 1
+		}],
+		"max-lines": ["error",
+		{
+			"max": 250,
+			"skipBlankLines": true,
+			"skipComments": true
+		}],
+		"max-params": ["error",
+		{
+			"max": 4
+		}],
+		"new-cap": ["error",
+		{
+			"newIsCap": true,
+			"capIsNew": true,
+			"properties": true
+		}],
+		"no-alert": "warn",
+		"no-array-constructor": "error",
+		"no-bitwise": "warn",
+		"no-caller": "error",
+		"no-div-regex": "error",
+		"no-else-return": "warn",
+		"no-empty": ["warn",
+		{
+			"allowEmptyCatch": false
+		}],
+		"no-empty-function": ["warn",
+		{
+			"allow": ["constructors"]
+		}],
+		"no-empty-static-block": "warn",
+		"no-eval": ["error",
+		{
+			"allowIndirect": false
+		}],
+		"no-extend-native": "error",
+		"no-extra-bind": "warn",
+		"no-implicit-coercion": "error",
+		"no-implicit-global": ["error",
+		{
+			"lexicalBindings": true
+		}],
+		"no-implied-eval": "error",
+		"no-invalid-this": ["error",
+		{
+			"capIsConstructor": true
+		}],
+		"no-iterator": "error",
+		"no-label-var": "error",
+		"no-lone-blocks": "error",
+		"no-lonely-if": "error",
+		"no-loop-func": "warn",
+		"no-magic-numbers": "error",
+		"no-multi-assign": ["error",
+		{
+			"ignoreNonDeclaration": false
+		}],
+		"no-multi-str": "error",
+		"no-nested-ternary": "error",
+		"no-new": "error",
+		"no-new-func": "error",
+		"no-new-wrappers": "error",
+		"no-object-constructor": "error",
+		"no-octal-escape": "error",
+		"no-param-reassign": "error",
+		"no-proto": "error",
+		"no-restricted-exports": ["error",
+		{
+			"restrictedNamedExports": ["default", "error", "function"]
+		}], // https://eslint.org/docs/latest/rules/no-restricted-exports
+		"no-restricted-globals": ["error", "event", "fdescribe"], // https://eslint.org/docs/latest/rules/no-restricted-globals
+		"no-restricted-imports": ["error",
+		{
+			"paths": [""],
+			"patterns": [""]
+		}], // https://eslint.org/docs/latest/rules/no-restricted-imports
+		"no-restricted-properties": ["error",
+		{
+			"object": "",
+			"property": "",
+			"message": ""
+		}], // https://eslint.org/docs/latest/rules/no-restricted-properties
+		"no-restricted-syntax": ["error",
+		{
+			"selector": "",
+			"message": ""
+		}], // https://eslint.org/docs/latest/rules/no-restricted-syntax
+		"no-return-assign": ["error", "always"],
+		"no-script-url": "error",
+		"no-sequences": ["error",
+		{
+			"allowInParentheses": false
+		}],
+		"no-shadow": ["error",
+		{
+			"builtinGlobals": true,
+			"hoist": "all",
+			"allow": "",
+			"ignoreOnInitialization": false
+		}],
+		"no-ternary": "error",
+		"no-throw-literal": "error",
+		"no-undef-init": "error", // does not check const declarations
+		"no-undefined": "warn", // might be removed depending on the use in code https://eslint.org/docs/latest/rules/no-undefined
+		"no-underscore-dangle": ["error",
+		{
+			"allow": [],
+			"allowAfterThis": false,
+			"allowAfterSuper": false,
+			"allowAfterThisConstructor": false,
+			"enforceInMethodNames": true,
+			"enforceInClassFields": true,
+			"allowInArrayDestructuring": false,
+			"allowInObjectDestructuring": false,
+			"allowFunctionParams": false
+		}],
+		"no-unneeded-ternary": ["error",
+		{
+			"defaultAssignment": false
+		}],
+		"no-unused-expressions": ["error",
+		{
+			"allowShortCircuit": false,
+			"allowTernary": false,
+			"allowTaggedTemplates": false,
+			"enforceForJSX": true
+		}],
+		"no-useless-call": "warn",
+		"no-useless-catch": "warn",
+		"no-useless-computed-key": ["warn",
+		{
+			"enforceForClassMembers": true
+		}],
+		"no-useless-concat": "error",
+		"no-useless-constructor": "off",
+		"no-useless-rename": ["error",
+		{
+			"ignoreImport" : false,
+			"ignoreExport" : false,
+			"ignoreDestructuring" : false
+		}],
+		"no-useless-return": "error",
+		"no-var" : "error",
+		"no-void": ["warn",
+		{
+			"allowsAsStatement": false
+		}], // pair with no-undefined, might be removed depending on the use in code https://eslint.org/docs/latest/rules/no-void
+		"no-warning-comments": ["warn",
+		{
+			"terms": ["TODO", "FIX", "TOFIX", "FIXME"],
+			"location": "anywhere",
+			"decoration": []
+		}],
+		"object-shorthand": ["error", "methods",
+		{
+			"avoidQuotes": true,
+			"ignoreConstructors": false,
+			"methodsIgnorePattern": [],
+			"avoidExplicitReturnArrows": false
+		}],
+		"one-var": ["error", "never"],
+		"operator-assignment": ["warn", "always"],
+		"prefer-arrow-callback": ["error",
+		{
+			"allowNamedFunctions": true,
+			"allowUnboundThis": false
+		}],
+		"prefer-const": ["error",
+		{
+			"destructuring": "any",
+			"ignoreReadBeforeAssign": false
+		}],
+		"prefer-destructuring": ["error",
+		{
+			"array": false,
+			"object": false
+		},
+		{
+			"enforceForRenamedProperties": true
+		}],
+		"prefer-exponential-operator": "error",
+		"prefer-named-capture-group": "warn",
+		"prefer-numeric-literals": "error",
+		"prefer-object-has-own": "error",
+		"prefer-object-spread": "warn",
+		"prefer-promise-reject-errors": ["error",
+		{
+			"allowEmptyReject": false
+		}],
+		"prefer-regex-literals": ["warn",
+		{
+			"disallowRedundantWrapping": true
+		}]
+	},
+	"ignorePatterns":["src/**/*.test.ts", "src/frontend/generated/*"]
+}
