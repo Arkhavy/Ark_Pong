@@ -1,21 +1,61 @@
-const	divEl: HTMLDivElement | null = document.getElementById("divEl") as HTMLDivElement | null; // div element around canvas
-if (!divEl)
-	throw new Error("PONG ERROR: could not load game environment from start\nCause: HTMLDivElement === NULL");
-const	canvasEl: HTMLCanvasElement | null = document.getElementById("canvasEl") as HTMLCanvasElement | null; // canvas element
-if (!canvasEl)
-	throw new Error("PONG ERROR: could not load game environment from start\nCause: HTMLCanvasElement === NULL");
-const	ctx: CanvasRenderingContext2D | null = canvasEl.getContext("2d") as CanvasRenderingContext2D | null; // defining 2D for canvas
-if (!ctx)
-	throw new Error("PONG ERROR: could not load game environment from start\nCause: CanvasRenderingContext2D === NULL");
+import {errmsg} from "./error";
 
-// Getting style of div element around canvas, for border width
-const	divStyle: CSSStyleDeclaration = window.getComputedStyle(divEl);
-const	divElBorderWidth: number[] = [];
-divElBorderWidth.push(parseInt(divStyle.borderTopWidth) || 0);
-divElBorderWidth.push(parseInt(divStyle.borderBottomWidth) || 0);
-divElBorderWidth.push(parseInt(divStyle.borderLeftWidth) || 0);
-divElBorderWidth.push(parseInt(divStyle.borderRightWidth) || 0);
+interface	iCoord
+{
+	x: number;
+	y: number;
+}
 
-// Setting canvas size according on div size and its border
-canvasEl.height = divEl.offsetHeight - (divElBorderWidth[0] + divElBorderWidth[1]);
-canvasEl.width = divEl.offsetWidth - (divElBorderWidth[2] + divElBorderWidth[3]);
+interface	iCanvas
+{
+	divEl: HTMLDivElement | null;
+	canvasEl: HTMLCanvasElement | null;
+	ctx: CanvasRenderingContext2D | null;
+	divStyle: CSSStyleDeclaration | null;
+	divElBorderWidth: number[] | null;
+}
+
+const	canvas: iCanvas =
+{
+	divEl: null,
+	canvasEl: null,
+	ctx: null,
+	divStyle: null,
+	divElBorderWidth: null
+};
+
+function	initCanvas(): void
+{
+	// div element around canvas
+	canvas.divEl = document.getElementById("divEl") as HTMLDivElement | null;
+	if (!canvas.divEl || canvas.divEl === undefined)
+		throw new Error(errmsg.divEl);
+
+	// canvas element
+	canvas.canvasEl = document.getElementById("canvasEl") as HTMLCanvasElement | null;
+	if (!canvas.canvasEl || canvas.canvasEl === undefined)
+		throw new Error(errmsg.canvasEl);
+
+	// defining 2D or 3D for canvas
+	canvas.ctx = canvas.canvasEl.getContext("2d") as CanvasRenderingContext2D | null;
+	if (!canvas.ctx || canvas.ctx === undefined)
+		throw new Error(errmsg.ctx);
+
+	// Getting style of div element around canvas, for border width
+	canvas.divStyle = window.getComputedStyle(canvas.divEl);
+	if (!canvas.divStyle || canvas.divStyle === undefined)
+		throw new Error(errmsg.divStyle);
+
+	canvas.divElBorderWidth = [];
+	if (!canvas.divElBorderWidth || canvas.divElBorderWidth === undefined)
+		throw new Error(errmsg.numtab);
+
+	canvas.divElBorderWidth.push(parseInt(canvas.divStyle.borderTopWidth) || 0);
+	canvas.divElBorderWidth.push(parseInt(canvas.divStyle.borderBottomWidth) || 0);
+	canvas.divElBorderWidth.push(parseInt(canvas.divStyle.borderLeftWidth) || 0);
+	canvas.divElBorderWidth.push(parseInt(canvas.divStyle.borderRightWidth) || 0);
+
+	// Setting canvas size according on div size and its border
+	canvas.canvasEl.height = canvas.divEl.offsetHeight - (canvas.divElBorderWidth[0] + canvas.divElBorderWidth[1]);
+	canvas.canvasEl.width = canvas.divEl.offsetWidth - (canvas.divElBorderWidth[2] + canvas.divElBorderWidth[3]);
+}
