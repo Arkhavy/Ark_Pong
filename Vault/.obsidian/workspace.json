@@ -6,6 +6,7 @@
       {
         "id": "a50b12fb63520683",
         "type": "tabs",
+        "dimension": 29.376430205949656,
         "children": [
           {
             "id": "0af435ec4b536b27",
@@ -17,6 +18,23 @@
                 "mode": "source",
                 "source": false
               }
+            }
+          }
+        ]
+      },
+      {
+        "id": "3c27c4e55e4911c8",
+        "type": "tabs",
+        "dimension": 70.62356979405034,
+        "children": [
+          {
+            "id": "105269b4a4a51ee0",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "graph",
+              "state": {},
+              "pinned": true
             }
           }
         ]
@@ -146,7 +164,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0af435ec4b536b27",
+  "active": "105269b4a4a51ee0",
   "lastOpenFiles": [
     "Arkscendance.md"
   ]
